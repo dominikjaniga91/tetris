@@ -24,6 +24,8 @@ public final class ColorPicker {
             color = Color.RED;
         } else if (block instanceof LBlock) {
             color = Color.GREEN;
+        } else if (block instanceof IBlock) {
+            color = Color.BLUE;
         }
         return color.getIdentifier();
     }
