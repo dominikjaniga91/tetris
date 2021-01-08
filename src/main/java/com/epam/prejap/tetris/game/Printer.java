@@ -32,8 +32,15 @@ public class Printer {
         out.print("\u001b[2J\u001b[H");
     }
 
-    void print(byte dot) {
-        out.format(dot == 0 ? " " : "#");
+    /**
+     * Print empty string with appropriate color, leave
+     * uncoloured empty string in case of zero in game's grid
+     *
+     * @param colorId color identifier from ANSI escape codes
+     * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
+     */
+    void print(byte colorId) {
+        out.format(colorId == 0 ? " " : Painter.paint(colorId));
     }
 
     void startRow() {
