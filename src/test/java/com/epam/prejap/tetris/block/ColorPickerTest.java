@@ -28,4 +28,16 @@ public class ColorPickerTest {
                 {new IBlock(), Color.BLUE}
         };
     }
+
+    @Test
+    public void colorPickerShouldReturnBlackIfBlockDoesNotExist() {
+        //given
+        int expected = Color.BLACK.getIdentifier();
+
+        //when
+        int actual = ColorPicker.pick(null);
+
+        //then
+        assertEquals(actual, expected, "Inappropriate color identifier ");
+    }
 }
