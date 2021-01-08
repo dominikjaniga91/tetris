@@ -2,6 +2,7 @@ package com.epam.prejap.tetris.game;
 
 import com.epam.prejap.tetris.block.Block;
 import com.epam.prejap.tetris.block.BlockFeed;
+import com.epam.prejap.tetris.block.ColorPicker;
 
 public class Playfield {
 
@@ -12,6 +13,7 @@ public class Playfield {
     private final BlockFeed feed;
 
     private Block block;
+    private byte colorId;
     private int row;
     private int col;
 
@@ -25,6 +27,7 @@ public class Playfield {
 
     public void nextBlock() {
         block = feed.nextBlock();
+        colorId = ColorPicker.pick(block);
         row = 0;
         col = (cols - block.cols()) / 2;
         show();
@@ -81,11 +84,11 @@ public class Playfield {
     }
 
     private void hide() {
-        forEachBrick((i, j, dot) -> grid[row + i][col + j] = 0);
+        forEachBrick((i, j) -> grid[row + i][col + j] = 0);
     }
 
     private void show() {
-        forEachBrick((i, j, dot) -> grid[row + i][col + j] = dot);
+        forEachBrick((i, j) -> grid[row + i][col + j] = colorId);
         printer.draw(grid);
     }
 
@@ -99,14 +102,14 @@ public class Playfield {
             for (int j = 0; j < block.cols(); j++) {
                 var dot = block.dotAt(i, j);
                 if (dot > 0) {
-                    action.act(i, j, dot);
+                    action.act(i, j);
                 }
             }
         }
     }
 
     private interface BrickAction {
-        void act(int i, int j, byte dot);
+        void act(int i, int j);
     }
 
 }
