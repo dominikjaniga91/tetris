@@ -17,12 +17,12 @@ final class Painter {
      * Set up background color to empty string using Control Sequence Introducer
      * from ANSI escape codes
      *
-     * @param colorIdentifier color code from ANSI
+     * @param colorId color identifier from ANSI
      * @return painted empty string
      * @since 0.2
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
-    static String paint(int colorIdentifier) {
-        return ESCAPE + colorIdentifier + FINAL_BYTE + " " + RESET_COLOR;
+    static String paint(int colorId) {
+        return ESCAPE + colorId + FINAL_BYTE + " " + RESET_COLOR;
     }
 }
