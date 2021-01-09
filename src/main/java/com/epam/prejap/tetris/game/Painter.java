@@ -3,9 +3,8 @@ package com.epam.prejap.tetris.game;
 /**
  * Class used to colour string character
  *
- * @author Dominik Janiga
- * @version 0.2
- * @since 0.2
+ * @author      Dominik Janiga
+ * @since       0.4
  */
 final class Painter {
 
@@ -17,10 +16,10 @@ final class Painter {
      * Set up background color to empty string using Control Sequence Introducer
      * from ANSI escape codes
      *
-     * @param colorId color identifier from ANSI
-     * @return painted empty string
-     * @since 0.2
-     * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
+     * @param colorId   color identifier from ANSI
+     * @return          painted empty string
+     * @since           0.4
+     * @see             <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
     static String paint(String blockSign, int colorId) {
         return ESCAPE + colorId + FINAL_BYTE + blockSign + RESET_COLOR;
