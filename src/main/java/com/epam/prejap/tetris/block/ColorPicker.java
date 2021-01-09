@@ -11,7 +11,8 @@ public final class ColorPicker {
      * Pick specific color identifier for each block type
      *
      * @param block     instance of specific game's block
-     * @return          color identifier from ANSI escape codes
+     * @return          color identifier from ANSI escape codes. Return identifier for black color
+     *                  if provided instance of a block does not fit
      * @since           0.4
      * @see             Color
      * @see             <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
