@@ -6,6 +6,7 @@ import java.time.Duration;
 public class Printer {
 
     private static final String TIME_FORMAT = "%02d:%02d:%02d";
+    private static final String BLOCK_SIGN = " ";
     final PrintStream out;
     private final Timer timer;
 
@@ -40,7 +41,7 @@ public class Printer {
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
     void print(byte colorId) {
-        out.format(colorId == 0 ? " " : Painter.paint(colorId));
+        out.format(colorId == 0 ? " " : Painter.paint(BLOCK_SIGN, colorId));
     }
 
     void startRow() {

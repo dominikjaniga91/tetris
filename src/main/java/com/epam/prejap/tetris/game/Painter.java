@@ -22,7 +22,7 @@ final class Painter {
      * @since 0.2
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
-    static String paint(int colorId) {
-        return ESCAPE + colorId + FINAL_BYTE + " " + RESET_COLOR;
+    static String paint(String blockSign, int colorId) {
+        return ESCAPE + colorId + FINAL_BYTE + blockSign + RESET_COLOR;
     }
 }
