@@ -5,10 +5,8 @@ import org.mockito.Mockito;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -58,13 +56,11 @@ public class PrinterTest {
         Timer timer = Mockito.mock(Timer.class);
         Printer printer = Mockito.spy(new Printer(new PrintStream(bos), timer));
         int colorId = color.getIdentifier();
-        int backgroundColorId = colorId + 10;
         String escape =  "\u001B[";
         String finalByte = "m";
-        String breakSign = ";";
         String resetColor = escape + "0" + finalByte;
         String blockMark = "#";
-        String expected = escape + colorId + breakSign + backgroundColorId + finalByte + blockMark + resetColor;
+        String expected = escape + colorId + finalByte + blockMark + resetColor;
 
         // when
         printer.print((byte) colorId);
