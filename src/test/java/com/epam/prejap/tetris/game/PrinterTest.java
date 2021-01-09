@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 @Test(groups = "Timer")
@@ -46,5 +47,27 @@ public class PrinterTest {
         // then
         Mockito.verify(printer).header();
         assertTrue(bos.toString().contains(message));
+    }
+
+
+
+    @Test(groups = "Color", dataProvider = "getColorId")
+    public void shouldPrintStringInAppropriateColor(int colorId) {
+        // given
+        Timer timer = Mockito.mock(Timer.class);
+        Printer printer = Mockito.spy(new Printer(new PrintStream(bos), timer));
+        String expected = "\u001B[" + colorId + "m \u001B[0m";
+
+        // when
+        printer.print((byte) colorId);
+
+        // then
+        assertEquals(bos.toString(), expected);
+    }
+
+
+    @DataProvider
+    private Object[] getColorId() {
+        return new Object[]{ 40, 41, 42, 43, 44, 45};
     }
 }
