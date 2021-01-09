@@ -1,7 +1,7 @@
 package com.epam.prejap.tetris.game;
 
 /**
- * Class used to colour string character
+ * Colour string character
  *
  * @author      Dominik Janiga
  * @since       0.4
