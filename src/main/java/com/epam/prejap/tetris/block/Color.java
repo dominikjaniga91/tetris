@@ -1,6 +1,6 @@
 package com.epam.prejap.tetris.block;
 
-enum Color {
+public enum Color {
 
     BLACK(30),
     RED(31),
@@ -27,4 +27,12 @@ enum Color {
         return (byte) colorId;
     }
 
+    public String paint(String blockMark) {
+
+        String escape =  "\u001B[";
+        String finalByte = "m";
+        String breakSign = ";";
+        String resetColor = escape + "0" + finalByte;
+        return escape + colorId + breakSign + backgroundColorId + finalByte + blockMark + resetColor;
+    }
 }
