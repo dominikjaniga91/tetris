@@ -27,7 +27,7 @@ public enum Color {
         return (byte) colorId;
     }
 
-    public String paint(String blockMark) {
+    public String applyFor(String blockMark) {
 
         String escape =  "\u001B[";
         String finalByte = "m";
