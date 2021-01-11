@@ -1,6 +1,5 @@
 package com.epam.prejap.tetris.game;
 
-import com.epam.prejap.tetris.block.Color;
 import java.io.PrintStream;
 import java.time.Duration;
 
@@ -39,10 +38,11 @@ public class Printer {
      * uncoloured empty string in case of zero in game's grid
      *
      * @param colorId color identifier from ANSI escape codes
+     * @since 0.5
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
     void print(byte colorId) {
-        out.format(colorId == 0 ? " " : Color.of(colorId).applyFor(BLOCK_SIGN));
+        out.format(colorId == 0 ? " " : Painter.paint(BLOCK_SIGN, colorId));
     }
 
     void startRow() {
