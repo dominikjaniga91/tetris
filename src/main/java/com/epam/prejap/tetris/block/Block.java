@@ -7,8 +7,14 @@ public abstract class Block {
     final byte[][] image;
     final int rows;
     final int cols;
+    private Color color;
 
     Block(byte[][] dots, Color color) {
+        this(dots);
+        this.color = color;
+    }
+
+    private Block(byte[][] dots) {
         rows = dots.length;
         if (dots.length == 0) {
             throw new IllegalArgumentException("Image has height equal to 0");
@@ -24,8 +30,7 @@ public abstract class Block {
                 if (dot < 0) {
                     throw new IllegalArgumentException("Invalid dot value");
                 }
-
-                image[i][j] = dot == 0 ? dot : getColorId(color);
+                image[i][j] = dot;
             }
         }
     }
@@ -42,7 +47,7 @@ public abstract class Block {
         return image[i][j];
     }
 
-    private byte getColorId(Color color) {
+    public byte getColorId() {
         return Objects.requireNonNullElse(color, Color.BLACK).getIdentifier();
     }
 
