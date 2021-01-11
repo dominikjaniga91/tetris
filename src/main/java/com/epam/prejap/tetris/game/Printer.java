@@ -7,7 +7,7 @@ import java.time.Duration;
 public class Printer {
 
     private static final String TIME_FORMAT = "%02d:%02d:%02d";
-    private static final String BLOCK_SIGN = " ";
+    private static final String BLOCK_SIGN = "#";
     final PrintStream out;
     private final Timer timer;
 
