@@ -13,7 +13,6 @@ public class Playfield {
     private final BlockFeed feed;
 
     private Block block;
-    private byte colorId;
     private int row;
     private int col;
 
@@ -27,7 +26,6 @@ public class Playfield {
 
     public void nextBlock() {
         block = feed.nextBlock();
-        colorId = ColorPicker.pick(block);
         row = 0;
         col = (cols - block.cols()) / 2;
         show();
