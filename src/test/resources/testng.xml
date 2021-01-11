@@ -23,7 +23,6 @@
             <class name="com.epam.prejap.tetris.player.RandomPlayerTest"/>
             <class name="com.epam.prejap.tetris.game.PrinterTest"/>
             <class name="com.epam.prejap.tetris.game.TimerTest"/>
-            <class name="com.epam.prejap.tetris.block.ColorPickerTest"/>
             <class name="com.epam.prejap.tetris.game.PainterTest"/>
         </classes>
     </test>
