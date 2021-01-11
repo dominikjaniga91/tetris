@@ -1,5 +1,7 @@
 package com.epam.prejap.tetris.block;
 
+import java.util.Arrays;
+
 public enum Color {
 
     BLACK(30),
@@ -25,6 +27,13 @@ public enum Color {
 
     byte getIdentifier() {
         return (byte) colorId;
+    }
+
+    public static Color of(int colorId) {
+        return Arrays.stream(values())
+                .filter(color -> color.colorId == colorId)
+                .findFirst()
+                .orElse(Color.BLACK);
     }
 
     public String applyFor(String blockMark) {
