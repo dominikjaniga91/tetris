@@ -7,14 +7,10 @@ public abstract class Block {
     final byte[][] image;
     final int rows;
     final int cols;
-    private Color color;
+    private final Color color;
 
     Block(byte[][] dots, Color color) {
-        this(dots);
         this.color = color;
-    }
-
-    private Block(byte[][] dots) {
         rows = dots.length;
         if (dots.length == 0) {
             throw new IllegalArgumentException("Image has height equal to 0");
