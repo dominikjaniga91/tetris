@@ -2,26 +2,29 @@ package com.epam.prejap.tetris.block;
 
 enum Color {
 
-    BLACK(40),
-    RED(41),
-    GREEN(42),
-    YELLOW(43),
-    BLUE(44),
-    MAGENTA(45),
-    CYAN(46),
-    WHITE(47);
+    BLACK(30),
+    RED(31),
+    GREEN(32),
+    YELLOW(33),
+    BLUE(33),
+    MAGENTA(35),
+    CYAN(36),
+    WHITE(37);
 
     /**
      * Color identifier from ANSI escape codes
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
-    private final byte identifier;
+    private final int colorId;
+    private final int backgroundColorId;
 
-    Color(int identifier) {
-        this.identifier = (byte) identifier;
+    Color(int colorId) {
+        this.colorId =  colorId;
+        this.backgroundColorId = this.colorId +  10;
     }
 
     byte getIdentifier() {
-        return identifier;
+        return (byte) colorId;
     }
+
 }
