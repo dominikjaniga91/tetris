@@ -38,7 +38,7 @@ public class Printer {
      * uncoloured empty string in case of zero in game's grid
      *
      * @param colorId color identifier from ANSI escape codes
-     * @since 0.5
+     * @since 0.6
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
     void print(byte colorId) {

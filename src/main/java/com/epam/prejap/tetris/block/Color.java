@@ -2,7 +2,7 @@ package com.epam.prejap.tetris.block;
 
 /**
  * @author Dominik Janiga
- * @since 0.5
+ * @since 0.6
  */
 public enum Color {
 
@@ -19,6 +19,7 @@ public enum Color {
      * Color identifiers from ANSI escape codes
      *
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
+     * @since 0.6
      */
     private final int colorId;
 
