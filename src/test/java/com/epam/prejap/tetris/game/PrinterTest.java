@@ -1,5 +1,6 @@
 package com.epam.prejap.tetris.game;
 
+import com.epam.prejap.tetris.block.Color;
 import org.mockito.Mockito;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -51,12 +52,19 @@ public class PrinterTest {
 
 
 
-    @Test(groups = "Color", dataProvider = "getColorId")
-    public void shouldPrintStringInAppropriateColor(int colorId) {
+    @Test(groups = "Color", dataProvider = "colors")
+    public void shouldPrintStringInAppropriateColor(Color color) {
         // given
         Timer timer = Mockito.mock(Timer.class);
         Printer printer = Mockito.spy(new Printer(new PrintStream(bos), timer));
-        String expected = "\u001B[" + colorId + "m \u001B[0m";
+        int colorId = color.getIdentifier();
+        int backgroundColorId = colorId + 10;
+        String escape =  "\u001B[";
+        String finalByte = "m";
+        String breakSign = ";";
+        String resetColor = escape + "0" + finalByte;
+        String blockMark = "#";
+        String expected = escape + colorId + breakSign + backgroundColorId + finalByte + blockMark + resetColor;
 
         // when
         printer.print((byte) colorId);
@@ -67,7 +75,16 @@ public class PrinterTest {
 
 
     @DataProvider
-    private Object[] getColorId() {
-        return new Object[]{ 40, 41, 42, 43, 44, 45};
+    private Object[] colors() {
+        return new Object[]{
+                Color.BLACK,
+                Color.RED,
+                Color.GREEN,
+                Color.YELLOW,
+                Color.BLUE,
+                Color.MAGENTA,
+                Color.CYAN,
+                Color.WHITE,
+        };
     }
 }
