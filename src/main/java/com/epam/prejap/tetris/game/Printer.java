@@ -8,7 +8,7 @@ import java.time.Duration;
 public class Printer {
 
     private static final String TIME_FORMAT = "%02d:%02d:%02d";
-    private static final String BLOCK_SIGN = "#";
+    private static final String BLOCK_MARK = "#";
     final PrintStream out;
     private final Timer timer;
 
@@ -36,15 +36,16 @@ public class Printer {
     }
 
     /**
-     * Print block sign with appropriate color, leave
+     * Print block mark with appropriate color, leave
      * uncoloured empty string in case of zero in game's grid
      *
      * @param colorId   id of specific Color enumeration constant
-     * @since           0.6
+     * @since           0.8
      * @see             Color
      */
     void print(byte colorId) {
-        out.format(colorId == 0 ? " " : Color.of(colorId).applyFor(BLOCK_SIGN));
+        String colored = Color.of(colorId).applyFor(BLOCK_MARK);
+        out.format(colorId == 0 ? " " : colored);
     }
 
     void startRow() {

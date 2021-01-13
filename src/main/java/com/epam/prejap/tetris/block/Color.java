@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author Dominik Janiga
- * @since 0.6
+ * @since 0.8
  */
 public enum Color {
 
@@ -21,7 +21,7 @@ public enum Color {
      * Color identifiers from ANSI escape codes
      *
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
-     * @since 0.6
+     * @since 0.8
      */
     private final int id;
     private final int ansiCode;
@@ -44,7 +44,7 @@ public enum Color {
      *
      * @param id        the id of specific enumeration constant
      * @return          an instance of enum constant if there is any, otherwise return Black constant
-     * @since           0.6
+     * @since           0.8
      */
     public static Color of(int id) {
         return Arrays.stream(values())
@@ -59,7 +59,7 @@ public enum Color {
      *
      * @param blockMark the mark that represent block on the game field
      * @return          painted block's mark string
-     * @since           0.6
+     * @since           0.8
      * @see             <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
     public String applyFor(String blockMark) {
@@ -68,6 +68,4 @@ public enum Color {
         String resetColor = escape + "0" + finalByte;
         return escape + ansiCode + finalByte + blockMark + resetColor;
     }
-
-
 }
