@@ -41,7 +41,7 @@
             <class name="com.epam.prejap.tetris.CommandLineAnalystTest"/>
             <class name="com.epam.prejap.tetris.game.PrinterTest"/>
             <class name="com.epam.prejap.tetris.game.TimerTest"/>
-            <class name="com.epam.prejap.tetris.game.PainterTest"/>
+            <class name="com.epam.prejap.tetris.block.Color"/>
         </classes>
     </test>
 </suite>
