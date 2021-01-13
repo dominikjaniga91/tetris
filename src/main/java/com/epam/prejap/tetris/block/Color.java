@@ -1,5 +1,7 @@
 package com.epam.prejap.tetris.block;
 
+import java.util.Arrays;
+
 /**
  * @author Dominik Janiga
  * @since 0.6
@@ -21,17 +23,18 @@ public enum Color {
      * @see <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      * @since 0.6
      */
-    private final int colorId;
+    private final int id;
     private final int ansiCode;
 
-    Color(int colorId, int ansiCode) {
-        this.colorId =  colorId;
+    Color(int id, int ansiCode) {
+        this.id =  id;
         this.ansiCode =  ansiCode;
     }
 
     public byte getId() {
-        return (byte) colorId;
+        return (byte) id;
     }
+
 
 
 
