@@ -51,19 +51,19 @@ public class PrinterTest {
 
 
     @Test(groups = "Color", dataProvider = "colors")
-    public void shouldPrintStringInAppropriateColor(Color color) {
+    public void checkIfPrintMethodPrintsStringWithAppropriateColor(Color color) {
         // given
         Timer timer = Mockito.mock(Timer.class);
         Printer printer = Mockito.spy(new Printer(new PrintStream(bos), timer));
-        int colorId = color.getId();
+        int ansiCode = color.getAnsiCode();
         String escape =  "\u001B[";
         String finalByte = "m";
         String resetColor = escape + "0" + finalByte;
         String blockMark = "#";
-        String expected = escape + colorId + finalByte + blockMark + resetColor;
+        String expected = escape + ansiCode + finalByte + blockMark + resetColor;
 
         // when
-        printer.print((byte) colorId);
+        printer.print(color.getId());
 
         // then
         assertEquals(bos.toString(), expected);
@@ -72,15 +72,6 @@ public class PrinterTest {
 
     @DataProvider
     private Object[] colors() {
-        return new Object[]{
-                Color.BLACK,
-                Color.RED,
-                Color.GREEN,
-                Color.YELLOW,
-                Color.BLUE,
-                Color.MAGENTA,
-                Color.CYAN,
-                Color.WHITE,
-        };
+        return Color.values();
     }
 }
