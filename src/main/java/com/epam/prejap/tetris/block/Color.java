@@ -35,7 +35,19 @@ public enum Color {
         return (byte) id;
     }
 
-
+    /**
+     * Iterate through the array of enum constants and return first if ID's match
+     *
+     * @param id        the id of specific enumeration constant
+     * @return          an instance of enum constant if there is any, otherwise return Black constant
+     * @since           0.6
+     */
+    public Color of(int id) {
+        return Arrays.stream(values())
+                .filter(color -> color.id == id)
+                .findFirst()
+                .orElse(Color.BLACK);
+    }
 
 
     /**
