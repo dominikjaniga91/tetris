@@ -42,7 +42,7 @@ public enum Color {
      * @return          an instance of enum constant if there is any, otherwise return Black constant
      * @since           0.6
      */
-    public Color of(int id) {
+    public static Color of(int id) {
         return Arrays.stream(values())
                 .filter(color -> color.id == id)
                 .findFirst()
@@ -58,7 +58,7 @@ public enum Color {
      * @since           0.6
      * @see             <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
      */
-    String applyFor(String blockMark) {
+    public String applyFor(String blockMark) {
         String escape = "\u001B[";
         String finalByte = "m";
         String resetColor = escape + "0" + finalByte;
