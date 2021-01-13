@@ -35,6 +35,10 @@ public enum Color {
         return (byte) id;
     }
 
+    public int getAnsiCode() {
+        return ansiCode;
+    }
+
     /**
      * Iterate through the array of enum constants and return first if ID's match
      *
