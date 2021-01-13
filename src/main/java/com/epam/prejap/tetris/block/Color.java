@@ -32,4 +32,23 @@ public enum Color {
     public byte getId() {
         return (byte) colorId;
     }
+
+
+
+    /**
+     * Set up color to string using Control Sequence Introducer from ANSI escape codes
+     *
+     * @param blockMark the mark that represent block on the game field
+     * @return          painted block's mark string
+     * @since           0.6
+     * @see             <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI Escape codes</a>
+     */
+    String applyFor(String blockMark) {
+        String escape = "\u001B[";
+        String finalByte = "m";
+        String resetColor = escape + "0" + finalByte;
+        return escape + ansiCode + finalByte + blockMark + resetColor;
+    }
+
+
 }
