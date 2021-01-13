@@ -44,7 +44,7 @@ public abstract class Block {
     }
 
     public byte getColorId() {
-        return Objects.requireNonNullElse(color, Color.BLACK).getIdentifier();
+        return Objects.requireNonNullElse(color, Color.BLACK).getId();
     }
 
 }

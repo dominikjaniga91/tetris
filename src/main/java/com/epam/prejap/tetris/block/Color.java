@@ -29,7 +29,7 @@ public enum Color {
         this.ansiCode =  ansiCode;
     }
 
-    public byte getIdentifier() {
+    public byte getId() {
         return (byte) colorId;
     }
 }

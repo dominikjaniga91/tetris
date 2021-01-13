@@ -12,7 +12,7 @@ public class PainterTest {
     @Test(dataProvider = "colors")
     public void shouldReturnAppropriateByteArray_afterPaintString(Color color) {
         //given
-        int colorId = color.getIdentifier();
+        int colorId = color.getId();
         String escape =  "\u001B[";
         String finalByte = "m";
         String resetColor = escape + "0" + finalByte;

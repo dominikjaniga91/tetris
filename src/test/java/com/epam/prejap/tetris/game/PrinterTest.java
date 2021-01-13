@@ -55,7 +55,7 @@ public class PrinterTest {
         // given
         Timer timer = Mockito.mock(Timer.class);
         Printer printer = Mockito.spy(new Printer(new PrintStream(bos), timer));
-        int colorId = color.getIdentifier();
+        int colorId = color.getId();
         String escape =  "\u001B[";
         String finalByte = "m";
         String resetColor = escape + "0" + finalByte;
